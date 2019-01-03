@@ -12,14 +12,27 @@ function clicksubmit(){
     console.log(gifButton);
     buttons.push(gifButton)
     console.log(buttons);
+    makeButton(buttons);
   }); 
-  
 }
 
-
-
 //make a button for the search query and list the buttons..
+function makeButton(buttons){
+    
+    var body = $("body");
+    var btns = body.find("#buttons");
+    btns.empty();
 
+    for(var i = 0; i < buttons.length; i++){
+        var newButton = $("<button>");
+        newButton.addClass('gif-button');
+        newButton.attr('data-gif', buttons[i])
+        newButton.text(buttons[i]);
+        btns.append(newButton);
+    }
+
+
+}
 
 
 
